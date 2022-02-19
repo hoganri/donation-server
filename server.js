@@ -31,17 +31,16 @@ function getAddress(increment) {
 app.get('/', async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
-  (async() => {
-    let address = getAddress(addressIncrement);
-    let qrCodeSvg = new QRCode(address).svg();
-    // Return address and base64 QR code
-    res.send(
-      JSON.stringify({
-        'address': address,
-        'qr': qrCodeSvg.replace('\r\n','')
-      })
-    );
-  })();
+  let address = getAddress(addressIncrement);
+  let qrCodeSvg = new QRCode(address).svg();
+  
+  // Return address and base64 QR code
+  res.send(
+    JSON.stringify({
+      'address': address,
+      'qr': qrCodeSvg.replace('\r\n','')
+    })
+  );
 
   // Log the last index, then increment it by 1
   console.log('Last index: '+addressIncrement.toString());
