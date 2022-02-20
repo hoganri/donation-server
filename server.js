@@ -29,6 +29,7 @@ function getAddress(increment) {
 
 // Primary endpoint
 app.get('/', async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   res.setHeader('Content-Type', 'application/json');
 
   let address = getAddress(addressIncrement);
@@ -38,7 +39,7 @@ app.get('/', async (req, res) => {
   res.send(
     JSON.stringify({
       'address': address,
-      'qr': qrCodeSvg.replace('\r\n','')
+      'qr': qrCodeSvg.replace(/\r\n/g,'')
     })
   );
 

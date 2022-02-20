@@ -11,3 +11,5 @@ node server.js
 ```
 
 Then visit [http://localhost:4000/](http://localhost:4000/) in your browser to see the JSON response. Refresh to get a new address.
+
+You can also open the static [example-ui.html](example-ui.html) file in your browser to see an example UI that retrieves/displays the data from the endpoint.

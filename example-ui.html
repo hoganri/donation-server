@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=11"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline';script-src 'self' 'unsafe-inline'"/>
+    <title>
+      Donation Server
+    </title>
+    <script>
+      fetch('http://localhost:4000/')
+      .then(res => res.json())
+      .then((out) => {
+        let htmlString = '';
+        htmlString += '<div><h3>'+out.address+'</h3>';
+        htmlString += out.qr+'</div>';
+        document.querySelector('#address').innerHTML=htmlString;
+      })
+      .catch(err => { throw err });
+    </script>
+  </head> 
+    <body>
+      <h1>Donation Server</h1>
+      <div id="address"></div>
+    </body>
+    </html>
